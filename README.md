@@ -5,7 +5,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone [backend-repo-link]
+   git clone git@github.com:aatishshakya/mern-backend-test.git
    cd mern-backend
 
    ```

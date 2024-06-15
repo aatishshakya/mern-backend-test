@@ -1,6 +1,10 @@
 // src/config/db.ts
 import mongoose from "mongoose";
 
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const connectDB = async () => {
   mongoose
     .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/mern-ts")

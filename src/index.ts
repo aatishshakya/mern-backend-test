@@ -11,8 +11,28 @@ dotenv.config();
 
 const app = express();
 
+// Define the allowed origins
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://mern-frontend-ashen.vercel.app/",
+];
+
+// Configure CORS options
+const corsOptions = {
+  origin: function (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) {
+    if (origin && allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
